@@ -1,0 +1,33 @@
+/* AboutSection.css */
+.about-slide {
+  padding: 0 8px; /* Add padding to create gap between slides */
+}
+
+.prev-arrow,
+.next-arrow {
+  color: #764824;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+}
+
+.prev-arrow {
+  left: -24px;
+  background-color: rgb(255, 255, 255);
+  width: 30px;
+  margin-right: 70px;
+  border: solid #764824;
+  border-radius: 5px;
+
+   
+}
+
+.next-arrow {
+  right: -26px;
+  background-color: rgb(255, 255, 255);
+  width: 30px;
+  border: solid #764824;
+  border-radius: 5px;
+}
