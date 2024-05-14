@@ -11,10 +11,12 @@ const HeroSection = () => {
   const [heroImage, setHeroImage] = useState('/hedgehog-removebg-preview.png');
 
   // Function to change the image source
-  const changeImage = () => {
-    console.log("Change image function called");
-    setHeroImage('/xd.png');
-  };
+ // Function to change the image source
+const changeImage = (imgPath: string) => {
+  console.log("Change image function called with path:", imgPath);
+  setHeroImage(imgPath);
+};
+
   return (
     <section id="home" >
       <div className="relative h-9 mt-72 bottom-20 ml-56 flex flex-col text-center items-center justify-center animate-fadeIn animation-delay-2 my-10 py-16 sm:py-32 md:py-48 md:flex-row md:space-x-4 md:text-left " style={{width:"90%"}}>
@@ -22,7 +24,7 @@ const HeroSection = () => {
         <div className="w-full border-solid border-8 border-[#764824] rounded-xl" style={{ width: '400px', height: '400px',  marginLeft: "-30px" }}>
           <Image
             src={heroImage} // Updated to use dynamic heroImage state
-            alt=""
+            alt="sanic"
             width={400} //
             height={400}
           />

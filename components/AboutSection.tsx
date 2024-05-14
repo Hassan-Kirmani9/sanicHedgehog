@@ -31,10 +31,16 @@ interface DataItem {
   name: string;
   img: string;
 }
+interface ImageData {
+  imgPath: string;
+  width: number;
+  height: number;
+  marginLeft: string;
+}
 
 // Added type definitions for props passed to the AboutSection component
 interface AboutSectionProps {
-  changeImage: () => void;
+  changeImage: (imgPath: string) => void; // Updated to accept an image path argument
 }
 
 function AboutSection(props: AboutSectionProps) {
@@ -49,12 +55,20 @@ function AboutSection(props: AboutSectionProps) {
   
   };
   const handleClick = (index: number) => {
-    console.log("Slide clicked:", index); // Add this line to check if handleClick is called
+    console.log("Slide clicked:", index);
     if (index === 1) {
-      // Call the changeImage function from props if the first element is clicked
-      props.changeImage();
+      props.changeImage('/xtww.png');
+    } else if (index === 2) {
+      props.changeImage('/bm_ch.png');
+    } else if (index === 3) {
+      props.changeImage('/gp_ch.png');
+    } else if (index === 4) {
+      props.changeImage('/im_ch.png');
+    } else if (index === 5) {
+      props.changeImage('/stch.png');
     }
   };
+
   return (
     <div className='w-3/4 ml-10'>
       <div className="mt-10">
@@ -70,7 +84,7 @@ function AboutSection(props: AboutSectionProps) {
           {data.map((d,index) => (
             <div key={d.name} className="about-slide" onClick={() => handleClick(index + 1)}>
               <div className="bg-[#FBECCF] h-[100px] text-black rounded-xl border-solid border-[1px] border-[#764824]">
-                <img src={d.img} alt="" className="w-52 mt-[6px] cursor-pointer" />
+                <img src={d.img} alt="" className="w-[80px] h-[80px] mt-[6px] ml-[4px] cursor-pointer" />
               </div>
             </div>
           ))}
@@ -89,24 +103,22 @@ const data = [
   },
   {
     name: `Ellie Anderson`,
-    img: `/hedgehog-removebg-preview.png`,
+    img: `/batman.png`,
+    width: '5000px'
   },
   {
     name: `Nia Adebayo`,
-    img: `/hedgehog-removebg-preview.png`,    
+    img: `/gp.png`,    
   },
   {
     name: `Rigo Louie`,
-    img: `/hedgehog-removebg-preview.png`,    
+    img: `/ironman.png`,    
   },
   {
     name: `Mia Williams`,
-    img: `/hedgehog-removebg-preview.png`,    
+    img: `/starwars.png`,    
   },
-  {
-    name: `Mia Williams`,
-    img: `/hedgehog-removebg-preview.png`,    
-  },
+
 ];
 
 export default AboutSection;
